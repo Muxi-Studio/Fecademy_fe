@@ -1,0 +1,13 @@
+{
+	"routes": [{
+		"name" : "home",
+		"endpoint": "/",
+		"template": "index",
+		"async": false
+	}],
+	"data":{
+		"home" : {
+			"content" : "Hello Fecademy!"
+		}
+	}
+}
