@@ -5,7 +5,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = {
 	entry: [
 		'webpack/hot/dev-server',
-		path.resolve(__dirname,'./js/entry.js')
+		path.resolve(__dirname,'./src/main.js')
 	],
 	output: {
 		path: path.join(__dirname, '/static'),
@@ -13,14 +13,24 @@ module.exports = {
 		filename: 'bundle.js'
 	},
 	module: {
-    loaders: [{
-	      test: /\.scss$/,
-	      exclude: /node_modules/,
-	      loader: 'style!css?sourceMap!sass?sourceMap&sourceComments'
-    	}],
-  	},
+		loaders: [
+			{
+				test: /\.vue$/,
+				loader: 'vue'
+			},
+			{
+				test: /\.js$/,
+				loader: 'babel',
+				exclude: /node_modules/
+			},
+			{
+				test: /\.json$/,
+				loader: 'json'
+			}
+		]
+	},
   	resolve: {
-	    extensions: ['', '.js', '.scss'],
+	    extensions: ['', '.js', '.scss','.vue'],
 	},
 	plugins: [
 	    new webpack.optimize.OccurenceOrderPlugin(),
