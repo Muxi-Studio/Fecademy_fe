@@ -13,7 +13,7 @@ module.exports = {
 		filename: 'bundle.js'
 	},
 	module: {
-		loaders: [
+	    loaders: [
 			{
 				test: /\.vue$/,
 				loader: 'vue'
@@ -23,12 +23,26 @@ module.exports = {
 				loader: 'babel',
 				exclude: /node_modules/
 			},
+			{ 
+				test: /\.(html|tpl)$/, 
+				loader: 'html-loader' 
+			},
 			{
-				test: /\.json$/,
-				loader: 'json'
+				test: /\.(png|jpg|gif|svg)$/,
+				loader: 'file',
+				query: {
+					name: '[name].[ext]?[hash]'
+				}
 			}
-		]
+	    ]
 	},
+	devServer: {
+		historyApiFallback: true,
+        hot: true,
+        inline: true,
+        grogress: true
+	},
+	devtool: '#eval-source-map',
   	resolve: {
 	    extensions: ['', '.js', '.scss','.vue'],
 	},
@@ -36,5 +50,5 @@ module.exports = {
 	    new webpack.optimize.OccurenceOrderPlugin(),
 	    new webpack.HotModuleReplacementPlugin(),
 	    new webpack.NoErrorsPlugin(),
-  	],
+  	]
 };
