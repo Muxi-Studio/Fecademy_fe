@@ -8,7 +8,7 @@
 
 `$ npm run build`
 
-tips💡:生成文件不能直接在浏览器环境中打开，需要使用类似`http-server`的工具搭建一个web环境.
+tips💡:生成的文件需要使用类似`http-server`的工具搭建web环境来打开.
 
 ## 模拟数据
 
