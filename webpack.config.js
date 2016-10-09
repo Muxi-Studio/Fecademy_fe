@@ -10,15 +10,9 @@ module.exports = {
 	],
 	output: {
 		path: path.join(__dirname, '/static'),
-		publicPath: 'http://localhost:3000/static',
+		publicPath: '/static/',
 		filename: 'bundle.js'
 	},
-	devServer: {
-        historyApiFallback: true,
-        hot: true,
-        inline: true,
-        grogress: true,
-    },
 	module: {
 	    loaders: [
 			{
@@ -49,7 +43,6 @@ module.exports = {
 		},
 	},
 	postcss: [ autoprefixer({ browsers: ['last 2 versions'] }) ],
-	devtool: '#eval-source-map',
   	resolve: {
 	    extensions: ['', '.js', '.scss','.vue'],
 	},
@@ -57,8 +50,13 @@ module.exports = {
 		new ExtractTextPlugin('style.css', {
 	      	allChunks: true,
 	    }),
-	    new webpack.optimize.OccurenceOrderPlugin(),
+	    new webpack.optimize.UglifyJsPlugin({
+	      	compress: {
+	        	warnings: false
+	      	}
+	    }),
 	    new webpack.HotModuleReplacementPlugin(),
+	    new webpack.optimize.OccurenceOrderPlugin(),
 	    new webpack.NoErrorsPlugin(),
   	]
 };

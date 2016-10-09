@@ -1,6 +1,8 @@
 <template>
   	<div class="home">
 	    <img src="../assets/front.png" height="220" width="283">
+	    <img src="../assets/front_1.png" height="220" width="283">
+	     <img src="../assets/1.png" height="220" width="283">
 	    <div>前端仓库测试！</div>
   	</div>
 </template>
@@ -10,8 +12,8 @@
 	console.log("测试前端仓库！");
 </script>
 
-<style>
+<style lang='sass' scoped>
 .home {
-	color: red;
+	color: blue;
 }
 </style>
