@@ -1,7 +1,7 @@
 <template>
   	<div class="home">
 	    <img src="../assets/front.png" height="220" width="283">
-	    <div>前端仓库测试！</div>
+	    <div>前端仓测试！</div>
   	</div>
 </template>
 

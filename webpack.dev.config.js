@@ -4,21 +4,14 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 
 module.exports = {
-	entry: [
-		'webpack/hot/dev-server',
-		path.resolve(__dirname,'./src/main.js')
-	],
-	output: {
-		path: path.join(__dirname, '/static'),
-		publicPath: 'http://localhost:3000/static',
-		filename: 'bundle.js'
+	entry: {
+		'bundle.js': ['./src/main.js', 'webpack-hot-middleware/client']
 	},
-	devServer: {
-        historyApiFallback: true,
-        hot: true,
-        inline: true,
-        grogress: true,
-    },
+	output: {
+		path: '/',
+		publicPath: 'http://localhost:3000/static/',
+		filename: '[name]'
+	},
 	module: {
 	    loaders: [
 			{
@@ -42,21 +35,12 @@ module.exports = {
 				}
 			}
 	    ]
-	},
-	vue: {
-		loaders: {
-			sass: ExtractTextPlugin.extract('vue-style-loader', 'css-loader!sass-loader!postcss-loader'),
-		},
-	},
-	postcss: [ autoprefixer({ browsers: ['last 2 versions'] }) ],
+	},	
 	devtool: '#eval-source-map',
   	resolve: {
 	    extensions: ['', '.js', '.scss','.vue'],
 	},
 	plugins: [
-		new ExtractTextPlugin('style.css', {
-	      	allChunks: true,
-	    }),
 	    new webpack.optimize.OccurenceOrderPlugin(),
 	    new webpack.HotModuleReplacementPlugin(),
 	    new webpack.NoErrorsPlugin(),

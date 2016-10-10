@@ -1,17 +1,16 @@
 # Fecademy_fe
 
+前端学园——前端部分
+
+开发技术栈： Vuejs + SuperAgent + SCSS + PostCSS + Webpack + Ninja
+
 ## 开发
+
+`$ cnpm install `
 
 `$ npm run dev`
 
-## 部署
+## 构建
 
 `$ npm run build`
 
-tips💡:生成的文件需要使用类似`http-server`的工具搭建web环境来打开.
-
-## 模拟数据
-
-mock好数据后运行：
-
-`$ ninja`

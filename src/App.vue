@@ -31,7 +31,7 @@ html {
 }
 
 #app {
-	color: #2c3e50;
+	color: #000;
 	margin-top: -100px;
 	max-width: 600px;
 	font-family: Source Sans Pro, Helvetica, sans-serif;
