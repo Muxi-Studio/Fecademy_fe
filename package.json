@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --progress --hide-modules",
+    "build": "webpack --progress --quiet --config webpack.build.config.js",
     "dev": "ninja"
   },
   "repository": {

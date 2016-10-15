@@ -2,12 +2,12 @@ const webpack = require('webpack');
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const autoprefixer = require('autoprefixer');
+const Dashboard = require('webpack-dashboard');
+const DashboardPlugin = require('webpack-dashboard/plugin');
+const dashboard = new Dashboard();
 
 module.exports = {
-	entry: [
-		'webpack/hot/dev-server',
-		path.resolve(__dirname,'./src/main.js')
-	],
+	entry: path.resolve(__dirname,'./src/main.js'),
 	output: {
 		path: path.join(__dirname, '/static'),
 		publicPath: '/static/',
@@ -55,8 +55,8 @@ module.exports = {
 	        	warnings: false
 	      	}
 	    }),
-	    new webpack.HotModuleReplacementPlugin(),
 	    new webpack.optimize.OccurenceOrderPlugin(),
 	    new webpack.NoErrorsPlugin(),
+	    new DashboardPlugin(dashboard.setData)
   	]
 };

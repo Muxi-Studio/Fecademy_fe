@@ -12,6 +12,10 @@ module.exports = {
 		publicPath: 'http://localhost:3000/static/',
 		filename: '[name]'
 	},
+	devServer: {
+         quiet: true, 
+         noInfo: true
+    },
 	module: {
 	    loaders: [
 			{
@@ -35,7 +39,7 @@ module.exports = {
 				}
 			}
 	    ]
-	},	
+	},
 	devtool: '#eval-source-map',
   	resolve: {
 	    extensions: ['', '.js', '.scss','.vue'],
@@ -43,6 +47,6 @@ module.exports = {
 	plugins: [
 	    new webpack.optimize.OccurenceOrderPlugin(),
 	    new webpack.HotModuleReplacementPlugin(),
-	    new webpack.NoErrorsPlugin(),
+	    new webpack.NoErrorsPlugin()
   	]
 };
